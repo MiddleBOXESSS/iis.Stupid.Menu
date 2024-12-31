@@ -382,6 +382,18 @@ namespace iiMenu.Mods
             pageNumber = 0;
         }
 
+        public static void EnableRig()
+        {
+            buttonsType = 33;
+            pageNumber = 0;
+        }
+        
+        public static void EnableGaurdMods()
+        {
+            buttonsType = 34;
+            pageNumber = 0;
+        }
+
         public static void RightHand()
         {
             rightHand = true;

@@ -28,6 +28,8 @@ namespace iiMenu.Menu
                 new ButtonInfo { buttonText = "Master Mods", method =() => Settings.EnableMaster(), isTogglable = false, toolTip = "Opens the master mods."},
                 new ButtonInfo { buttonText = "Overpowered Mods", method =() => Settings.EnableOverpowered(), isTogglable = false, toolTip = "Opens the overpowered mods."},
                 new ButtonInfo { buttonText = "Experimental Mods", method =() => Settings.EnableBuggy(), isTogglable = false, toolTip = "Opens the experimental mods."},
+                new ButtonInfo { buttonText = "Rig Mods", method =() => Settings.EnableRig(), isTogglable = false, toolTip = "Opens rig mods"},
+                new ButtonInfo { buttonText = "Gaurdian Mods", method =() => Settings.EnableGaurdMods(), isTogglable = false, toolTip = "Opens guardian mods (excluding master dependent mods)",
             },
 
             new ButtonInfo[] { // Settings [1]
@@ -407,46 +409,6 @@ namespace iiMenu.Menu
                 new ButtonInfo { buttonText = "Air Swim", method =() => Movement.AirSwim(), disableMethod =() => Movement.DisableAirSwim(), toolTip = "Puts you in a block of water, letting you swim in the air." },
                 new ButtonInfo { buttonText = "Fast Swim", method =() => Movement.FastSwim(), toolTip = "Whenever you are in water, your velocity is slowly multiplied." },
                 new ButtonInfo { buttonText = "Disable Air", overlapText = "Disable Wind Barriers", method =() => Movement.DisableAir(), disableMethod =() => Movement.EnableAir(), toolTip = "Disables the wind barriers in every map." },
-
-                new ButtonInfo { buttonText = "Ghost <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.Ghost(), disableMethod =() => Movement.EnableRig(), toolTip = "Keeps your rig still when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Invisible <color=grey>[</color><color=green>B</color><color=grey>]</color>", method =() => Movement.Invisible(), disableMethod =() => Movement.EnableRig(), toolTip = "Makes you go invisible when holding <color=green>B</color>."},
-
-                new ButtonInfo { buttonText = "Rig Gun", method =() => Movement.RigGun(), toolTip = "Moves your rig to wherever your hand desires."},
-                new ButtonInfo { buttonText = "Grab Rig <color=grey>[</color><color=green>G</color><color=grey>]</color>", method =() => Movement.GrabRig(), toolTip = "Lets you grab your rig when holding <color=green>grip</color>."},
-                new ButtonInfo { buttonText = "Spaz Rig <color=grey>[</color><color=green>A</color><color=grey>]</color>", enableMethod =() => Movement.EnableSpazRig(), method =() => Movement.SpazRig(), disableMethod =() => Movement.DisableSpazRig(), toolTip = "Makes every part of your rig spaz out a little bit when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Spaz Rig Hands <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.SpazHands(), toolTip = "Makes your rig's hands spaz out everywhere when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Spaz Hands <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.SpazRealHands(), toolTip = "Makes your hands spaz out everywhere when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Spaz Head Position", enableMethod =() => Movement.EnableSpazHead(), method =() => Movement.SpazHeadPosition(), disableMethod =() => Movement.FixHeadPosition(), toolTip = "Makes your head position spaz out."},
-                new ButtonInfo { buttonText = "Random Spaz Head Position", enableMethod =() => Movement.EnableSpazHead(), method =() => Movement.RandomSpazHeadPosition(), disableMethod =() => Movement.FixHeadPosition(), toolTip = "Makes your head position spaz out for 0 to 1 seconds every 1 to 4 seconds."},
-                new ButtonInfo { buttonText = "Spaz Head", overlapText = "Spaz Head Rotation", method =() => Movement.SpazHead(), disableMethod =() => Fun.FixHead(), toolTip = "Makes your head rotation spaz out."},
-                new ButtonInfo { buttonText = "Random Spaz Head", overlapText = "Random Spaz Head Rotation", method =() => Movement.RandomSpazHead(), disableMethod =() => Fun.FixHead(), toolTip = "Makes your head rotation spaz out for 0 to 1 seconds every 1 to 4 seconds."},
-                new ButtonInfo { buttonText = "Laggy Rig", method =() => Movement.LaggyRig(), disableMethod =() => Movement.EnableRig(), toolTip = "Makes your rig laggy."},
-                new ButtonInfo { buttonText = "Smooth Rig", method =() => Movement.SmoothRig(), disableMethod =() => Movement.DisableSmoothRig(), toolTip = "Makes your rig really smooth."},
-                new ButtonInfo { buttonText = "Update Rig <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.UpdateRig(), disableMethod =() => Movement.EnableRig(), toolTip = "Freezes your rig in place. Whenever you click <color=green>A</color>, your rig will update."},
-                new ButtonInfo { buttonText = "Freeze Rig Limbs <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.FreezeRigLimbs(), toolTip = "Makes your hands and head freeze on your rig, but not your body, when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Freeze Rig Body <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.FreezeRigBody(), toolTip = "Makes your body freeze on your rig, but not your hands and head, when holding <color=green>A</color>."},
-
-                new ButtonInfo { buttonText = "Auto Dance <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.AutoDance(), toolTip = "Makes you dance when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Auto Griddy <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.AutoGriddy(), toolTip = "Makes you griddy when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Auto T Pose <color=grey>[</color><color=green>A</color><color=grey>]</color>", overlapText = "T Pose <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.AutoTPose(), toolTip = "Makes you t pose when holding <color=green>A</color>. Good for fly trolling."},
-                new ButtonInfo { buttonText = "Helicopter <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.Helicopter(), toolTip = "Turns you into a helicopter when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Beyblade <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.Beyblade(), toolTip = "Turns you into a beyblade when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Fan <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.Fan(), toolTip = "Turns you into a fan when holding <color=green>A</color>."},
-                new ButtonInfo { buttonText = "Ghost Animations", method =() => Movement.GhostAnimations(), disableMethod =() => Movement.DisableGhostAnimations(), toolTip = "Makes you look like a ghost, making your movement snappy and slow."},
-                new ButtonInfo { buttonText = "Minecraft Animations", method =() => Movement.MinecraftAnimations(), disableMethod =() => Movement.EnableRig(), toolTip = "Puts your hands down, and makes you walk when holding <color=green>A</color>. You can also point with <color=green>B</color>."},
-                new ButtonInfo { buttonText = "Stare at Nearby", overlapText = "Stare At Player Nearby", method =() => Movement.StareAtNearby(), toolTip = "Makes you stare at the nearest player."},
-                new ButtonInfo { buttonText = "Stare at Player Gun", method =() => Movement.StareAtGun(), toolTip = "Makes you stare at whoever your hand desires."},
-                new ButtonInfo { buttonText = "Floating Rig", enableMethod =() => Movement.EnableFloatingRig(), method =() => Movement.FloatingRig(), disableMethod =() => Movement.DisableFloatingRig(), toolTip = "Makes your rig float."},
-                new ButtonInfo { buttonText = "Bees", method =() => Movement.Bees(), disableMethod =() => Movement.EnableRig(), toolTip = "Makes your rig teleport to random players, imitating the bees ghost."},
-
-                new ButtonInfo { buttonText = "Piggyback Gun", method =() => Movement.PiggybackGun(), toolTip = "Teleports you on top of whoever your hand desires repeatedly."},
-                new ButtonInfo { buttonText = "Copy Movement Gun", method =() => Movement.CopyMovementGun(), toolTip = "Makes your rig copy the movement of whoever your hand desires."},
-                new ButtonInfo { buttonText = "Follow Player Gun", method =() => Movement.FollowPlayerGun(), toolTip = "Flies your rig towards whoever your hand desires."},
-                new ButtonInfo { buttonText = "Orbit Player Gun", method =() => Movement.OrbitPlayerGun(), toolTip = "Orbits your rig around whoever your hand desires."},
-                new ButtonInfo { buttonText = "Jumpscare Gun", method =() => Movement.JumpscareGun(), toolTip = "Makes you jumpscare whoever your hand desires."},
-                new ButtonInfo { buttonText = "Annoy Player Gun", method =() => Movement.AnnoyPlayerGun(), toolTip = "Spazzes your body around whoever your hand desires, with sounds."},
-                new ButtonInfo { buttonText = "Intercourse Gun", method =() => Movement.IntercourseGun(), toolTip = "Makes you thrust whoever your hand desires, with sounds."},
-                new ButtonInfo { buttonText = "Head Gun", method =() => Movement.HeadGun(), toolTip = "Makes you thrust whoever your hand desires, but lower, with sounds. I hate you all."}
             },
 
             new ButtonInfo[] { // Advantage Mods [10]
@@ -872,40 +834,6 @@ namespace iiMenu.Menu
             new ButtonInfo[] { // Overpowered Mods [17]
                 new ButtonInfo { buttonText = "Exit Overpowered Mods", method =() => Settings.ReturnToMain(), isTogglable = false, toolTip = "Returns you back to the main page."},
 
-                new ButtonInfo { buttonText = "Always Guardian", method =() => Overpowered.AlwaysGuardian(), disableMethod =() => Movement.EnableRig(), toolTip = "Makes you always the guardian."},
-                new ButtonInfo { buttonText = "Grab Gun", method =() => Overpowered.GrabGun(), toolTip = "Grabs whoever your hand desires if you're the guardian you."},
-                new ButtonInfo { buttonText = "Grab All <color=grey>[</color><color=green>G</color><color=grey>]</color>", method =() => Overpowered.GrabAll(), toolTip = "Grabs everyone in the lobby if you're the guardian."},
-
-                new ButtonInfo { buttonText = "Release Gun", method =() => Overpowered.ReleaseGun(), toolTip = "Releases whoever your hand desires if you're the guardian."},
-                new ButtonInfo { buttonText = "Release All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.ReleaseAll(), toolTip = "Releases everyone in the lobby if you're the guardian."},
-
-                new ButtonInfo { buttonText = "Fling Gun", method =() => Overpowered.FlingGun(), toolTip = "Flings whoever your hand desires."},
-                new ButtonInfo { buttonText = "Fling All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.FlingAll(), toolTip = "Flings everyone in the lobby."},
-
-                new ButtonInfo { buttonText = "Bring Gun", method =() => Overpowered.BringGun(), toolTip = "Brings whoever your hand desires towards you."},
-                new ButtonInfo { buttonText = "Bring All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.BringAll(), toolTip = "Brings everyone in the lobby towards you."},
-
-                new ButtonInfo { buttonText = "Bring All Gun", method =() => Overpowered.BringAllGun(), toolTip = "Brings everyone in the lobby towards wherever your hand desires."},
-
-                new ButtonInfo { buttonText = "Give Fly Gun", method =() => Overpowered.GiveFlyGun(), toolTip = "Gives whoever you want fly when they hold their right thumb down."},
-                new ButtonInfo { buttonText = "Give Fly All", method =() => Overpowered.GiveFlyAll(), toolTip = "Gives everyone in the lobby fly when they hold their right thumb down."},
-
-                new ButtonInfo { buttonText = "Safety Bubble", method =() => Overpowered.SafetyBubble(), toolTip = "Anyone who gets too close to you will be launched away."},
-
-                new ButtonInfo { buttonText = "Spaz Player Gun", method =() => Overpowered.SpazPlayerGun(), toolTip = "Spazzes out whoever your hand desires."},
-                new ButtonInfo { buttonText = "Spaz All Players <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.SpazAllPlayers(), toolTip = "Spazzes out everyone in the lobby."},
-
-                new ButtonInfo { buttonText = "Guardian Break Movement Gun", method =() => Overpowered.GuardianBreakMovementGun(), toolTip = "Breaks the movement of whoever your hand desires if you're guardian."},
-                new ButtonInfo { buttonText = "Guardian Break Movement All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.GuardianBreakMovementAll(), toolTip = "Breaks the movement of everybody if you're guardian."},
-
-                new ButtonInfo { buttonText = "Effect Spam Hands <color=grey>[</color><color=green>G</color><color=grey>]</color>", method =() => Overpowered.EffectSpamHands(), toolTip = "Spawns effects when holding <color=green>grip</color>."},
-                new ButtonInfo { buttonText = "Effect Spam Gun", method =() => Overpowered.EffectSpamGun(), toolTip = "Spawns effects wherever your hand desires."},
-
-                new ButtonInfo { buttonText = "Physical Freeze Gun", method =() => Overpowered.PhysicalFreezeGun(), toolTip = "Freezes whoever your hand desires." },
-                new ButtonInfo { buttonText = "Physical Freeze All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.PhysicalFreezeAll(), toolTip = "Freezes everyone in the lobby when holding <color=green>trigger</color>." },
-
-                new ButtonInfo { buttonText = "Freeze All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.FreezeAll(), toolTip = "Freezes everyone in the lobby when holding <color=green>trigger</color>." },
-
                 new ButtonInfo { buttonText = "Virtual Stump Kick Gun", method =() => Overpowered.VirtualStumpKickGun(), toolTip = "Kicks whoever your hand desires in the custom map."},
                 new ButtonInfo { buttonText = "Virtual Stump Kick All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.VirtualStumpKickAll(), toolTip = "Kicks everybody in the custom map when holding <color=green>trigger</color>."},
 
@@ -1112,7 +1040,89 @@ namespace iiMenu.Menu
                 new ButtonInfo { buttonText = "Keybind Right Trigger", enableMethod =() => Settings.StartBind("RT"), disableMethod =() => Settings.CancelBind(), toolTip = "Enables binding mode, letting you bind a mod to a button."},
                 new ButtonInfo { buttonText = "Keybind Left Joystick", enableMethod =() => Settings.StartBind("LJ"), disableMethod =() => Settings.CancelBind(), toolTip = "Enables binding mode, letting you bind a mod to a button."},
                 new ButtonInfo { buttonText = "Keybind Right Joystick", enableMethod =() => Settings.StartBind("RJ"), disableMethod =() => Settings.CancelBind(), toolTip = "Enables binding mode, letting you bind a mod to a button."},
+                
             },
+            new ButtonInfo[] { // Rig Mods [33]
+                new ButtonInfo { buttonText = "Exit Rig Mods", method =() => Settings.ReturnToMain(), isTogglable = false, toolTip = "Returns you back to the main page."},
+
+                new ButtonInfo { buttonText = "Ghost <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.Ghost(), disableMethod =() => Movement.EnableRig(), toolTip = "Toggles your rig's movement when you press <color=green>B</color>."},
+                new ButtonInfo { buttonText = "Invisible <color=grey>[</color><color=green>B</color><color=grey>]</color>", method =() => Movement.Invisible(), disableMethod =() => Movement.EnableRig(), toolTip = "Toggles your visibility when you press <color=green>B</color>."},
+
+                new ButtonInfo { buttonText = "Rig Gun", method =() => Movement.RigGun(), toolTip = "Moves your rig to wherever your hand desires."},
+                new ButtonInfo { buttonText = "Grab Rig <color=grey>[</color><color=green>G</color><color=grey>]</color>", method =() => Movement.GrabRig(), toolTip = "Lets you grab your rig when holding <color=green>grip</color>."},
+                new ButtonInfo { buttonText = "Spaz Rig <color=grey>[</color><color=green>A</color><color=grey>]</color>", enableMethod =() => Movement.EnableSpazRig(), method =() => Movement.SpazRig(), disableMethod =() => Movement.DisableSpazRig(), toolTip = "Makes every part of your rig spaz out a little bit when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Spaz Rig Hands <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.SpazHands(), toolTip = "Makes your rig's hands spaz out everywhere when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Spaz Hands <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.SpazRealHands(), toolTip = "Makes your hands spaz out everywhere when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Spaz Head Position", enableMethod =() => Movement.EnableSpazHead(), method =() => Movement.SpazHeadPosition(), disableMethod =() => Movement.FixHeadPosition(), toolTip = "Makes your head position spaz out."},
+                new ButtonInfo { buttonText = "Random Spaz Head Position", enableMethod =() => Movement.EnableSpazHead(), method =() => Movement.RandomSpazHeadPosition(), disableMethod =() => Movement.FixHeadPosition(), toolTip = "Makes your head position spaz out for 0 to 1 seconds every 1 to 4 seconds."},
+                new ButtonInfo { buttonText = "Spaz Head", overlapText = "Spaz Head Rotation", method =() => Movement.SpazHead(), disableMethod =() => Fun.FixHead(), toolTip = "Makes your head rotation spaz out."},
+                new ButtonInfo { buttonText = "Random Spaz Head", overlapText = "Random Spaz Head Rotation", method =() => Movement.RandomSpazHead(), disableMethod =() => Fun.FixHead(), toolTip = "Makes your head rotation spaz out for 0 to 1 seconds every 1 to 4 seconds."},
+                new ButtonInfo { buttonText = "Laggy Rig", method =() => Movement.LaggyRig(), disableMethod =() => Movement.EnableRig(), toolTip = "Makes your rig laggy."},
+                new ButtonInfo { buttonText = "Smooth Rig", method =() => Movement.SmoothRig(), disableMethod =() => Movement.DisableSmoothRig(), toolTip = "Makes your rig really smooth."},
+                new ButtonInfo { buttonText = "Update Rig <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.UpdateRig(), disableMethod =() => Movement.EnableRig(), toolTip = "Freezes your rig in place. Whenever you click <color=green>A</color>, your rig will update."},
+                new ButtonInfo { buttonText = "Freeze Rig Limbs <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.FreezeRigLimbs(), toolTip = "Makes your hands and head freeze on your rig, but not your body, when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Freeze Rig Body <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.FreezeRigBody(), toolTip = "Makes your body freeze on your rig, but not your hands and head, when holding <color=green>A</color>."},
+
+                new ButtonInfo { buttonText = "Auto Dance <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.AutoDance(), toolTip = "Makes you dance when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Auto Griddy <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.AutoGriddy(), toolTip = "Makes you griddy when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Auto T Pose <color=grey>[</color><color=green>A</color><color=grey>]</color>", overlapText = "T Pose <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.AutoTPose(), toolTip = "Makes you t pose when holding <color=green>A</color>. Good for fly trolling."},
+                new ButtonInfo { buttonText = "Helicopter <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.Helicopter(), toolTip = "Turns you into a helicopter when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Beyblade <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.Beyblade(), toolTip = "Turns you into a beyblade when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Fan <color=grey>[</color><color=green>A</color><color=grey>]</color>", method =() => Movement.Fan(), toolTip = "Turns you into a fan when holding <color=green>A</color>."},
+                new ButtonInfo { buttonText = "Ghost Animations", method =() => Movement.GhostAnimations(), disableMethod =() => Movement.DisableGhostAnimations(), toolTip = "Makes you look like a ghost, making your movement snappy and slow."},
+                new ButtonInfo { buttonText = "Minecraft Animations", method =() => Movement.MinecraftAnimations(), disableMethod =() => Movement.EnableRig(), toolTip = "Puts your hands down, and makes you walk when holding <color=green>A</color>. You can also point with <color=green>B</color>."},
+                new ButtonInfo { buttonText = "Stare at Nearby", overlapText = "Stare At Player Nearby", method =() => Movement.StareAtNearby(), toolTip = "Makes you stare at the nearest player."},
+                new ButtonInfo { buttonText = "Stare at Player Gun", method =() => Movement.StareAtGun(), toolTip = "Makes you stare at whoever your hand desires."},
+                new ButtonInfo { buttonText = "Floating Rig", enableMethod =() => Movement.EnableFloatingRig(), method =() => Movement.FloatingRig(), disableMethod =() => Movement.DisableFloatingRig(), toolTip = "Makes your rig float."},
+                new ButtonInfo { buttonText = "Bees", method =() => Movement.Bees(), disableMethod =() => Movement.EnableRig(), toolTip = "Makes your rig teleport to random players, imitating the bees ghost."},
+
+                new ButtonInfo { buttonText = "Piggyback Gun", method =() => Movement.PiggybackGun(), toolTip = "Teleports you on top of whoever your hand desires repeatedly."},
+                new ButtonInfo { buttonText = "Copy Movement Gun", method =() => Movement.CopyMovementGun(), toolTip = "Makes your rig copy the movement of whoever your hand desires."},
+                new ButtonInfo { buttonText = "Follow Player Gun", method =() => Movement.FollowPlayerGun(), toolTip = "Flies your rig towards whoever your hand desires."},
+                new ButtonInfo { buttonText = "Orbit Player Gun", method =() => Movement.OrbitPlayerGun(), toolTip = "Orbits your rig around whoever your hand desires."},
+                new ButtonInfo { buttonText = "Jumpscare Gun", method =() => Movement.JumpscareGun(), toolTip = "Makes you jumpscare whoever your hand desires."},
+                new ButtonInfo { buttonText = "Annoy Player Gun", method =() => Movement.AnnoyPlayerGun(), toolTip = "Spazzes your body around whoever your hand desires, with sounds."},
+                new ButtonInfo { buttonText = "Intercourse Gun", method =() => Movement.IntercourseGun(), toolTip = "Makes you thrust whoever your hand desires, with sounds."},
+                new ButtonInfo { buttonText = "Head Gun", method =() => Movement.HeadGun(), toolTip = "Makes you thrust whoever your hand desires, but lower, with sounds. I hate you all."}
+
+            },
+             new ButtonInfo[] { // Guardian Mods [34]
+                new ButtonInfo { buttonText = "Exit Guardian Mods", method =() => Settings.ReturnToMain(), isTogglable = false, toolTip = "Returns you back to the main page."},
+
+                new ButtonInfo { buttonText = "Always Guardian", method =() => Overpowered.AlwaysGuardian(), disableMethod =() => Movement.EnableRig(), toolTip = "Makes you always the guardian."},
+                new ButtonInfo { buttonText = "Grab Gun", method =() => Overpowered.GrabGun(), toolTip = "Grabs whoever your hand desires if you're the guardian you."},
+                new ButtonInfo { buttonText = "Grab All <color=grey>[</color><color=green>G</color><color=grey>]</color>", method =() => Overpowered.GrabAll(), toolTip = "Grabs everyone in the lobby if you're the guardian."},
+
+                new ButtonInfo { buttonText = "Release Gun", method =() => Overpowered.ReleaseGun(), toolTip = "Releases whoever your hand desires if you're the guardian."},
+                new ButtonInfo { buttonText = "Release All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.ReleaseAll(), toolTip = "Releases everyone in the lobby if you're the guardian."},
+
+                new ButtonInfo { buttonText = "Fling Gun", method =() => Overpowered.FlingGun(), toolTip = "Flings whoever your hand desires."},
+                new ButtonInfo { buttonText = "Fling All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.FlingAll(), toolTip = "Flings everyone in the lobby."},
+
+                new ButtonInfo { buttonText = "Bring Gun", method =() => Overpowered.BringGun(), toolTip = "Brings whoever your hand desires towards you."},
+                new ButtonInfo { buttonText = "Bring All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.BringAll(), toolTip = "Brings everyone in the lobby towards you."},
+
+                new ButtonInfo { buttonText = "Bring All Gun", method =() => Overpowered.BringAllGun(), toolTip = "Brings everyone in the lobby towards wherever your hand desires."},
+
+                new ButtonInfo { buttonText = "Give Fly Gun", method =() => Overpowered.GiveFlyGun(), toolTip = "Gives whoever you want fly when they hold their right thumb down."},
+                new ButtonInfo { buttonText = "Give Fly All", method =() => Overpowered.GiveFlyAll(), toolTip = "Gives everyone in the lobby fly when they hold their right thumb down."},
+
+                new ButtonInfo { buttonText = "Safety Bubble", method =() => Overpowered.SafetyBubble(), toolTip = "Anyone who gets too close to you will be launched away."},
+
+                new ButtonInfo { buttonText = "Spaz Player Gun", method =() => Overpowered.SpazPlayerGun(), toolTip = "Spazzes out whoever your hand desires."},
+                new ButtonInfo { buttonText = "Spaz All Players <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.SpazAllPlayers(), toolTip = "Spazzes out everyone in the lobby."},
+
+                new ButtonInfo { buttonText = "Guardian Break Movement Gun", method =() => Overpowered.GuardianBreakMovementGun(), toolTip = "Breaks the movement of whoever your hand desires if you're guardian."},
+                new ButtonInfo { buttonText = "Guardian Break Movement All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.GuardianBreakMovementAll(), toolTip = "Breaks the movement of everybody if you're guardian."},
+
+                new ButtonInfo { buttonText = "Effect Spam Hands <color=grey>[</color><color=green>G</color><color=grey>]</color>", method =() => Overpowered.EffectSpamHands(), toolTip = "Spawns effects when holding <color=green>grip</color>."},
+                new ButtonInfo { buttonText = "Effect Spam Gun", method =() => Overpowered.EffectSpamGun(), toolTip = "Spawns effects wherever your hand desires."},
+
+                new ButtonInfo { buttonText = "Physical Freeze Gun", method =() => Overpowered.PhysicalFreezeGun(), toolTip = "Freezes whoever your hand desires." },
+                new ButtonInfo { buttonText = "Physical Freeze All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.PhysicalFreezeAll(), toolTip = "Freezes everyone in the lobby when holding <color=green>trigger</color>." },
+
+                new ButtonInfo { buttonText = "Freeze All <color=grey>[</color><color=green>T</color><color=grey>]</color>", method =() => Overpowered.FreezeAll(), toolTip = "Freezes everyone in the lobby when holding <color=green>trigger</color>." },
+            },       
         };
     }
 }
